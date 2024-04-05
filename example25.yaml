@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: printnumbers
+spec:
+  ttlSecondsAfterFinished: 100
+  template:
+    metadata :
+      name: printnumbers
+    spec:
+      containers:
+      - name: pi
+        image: centos
+        command: 
+          - "bin/bash"
+          - "-c"
+          - "for i in {1..15}; do echo $i; done"
+      restartPolicy: Never
+
+      

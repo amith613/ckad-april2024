@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: myconfig
+data:
+  db_host_name : "oraclehost"
+  properties-name : "application.yml"
+
+  service_details : |
+    component=admissions-service, pathology-service
+    rating=5
+
+  css-properties : |
+    body {
+      background-color: lightblue;
+    }
+    h1 {
+      color: navy;
+      margin-left: 20px;
+    }
+    p {
+      font-family: verdana;
+      font-size: 20px;
+    }
+
+
+    

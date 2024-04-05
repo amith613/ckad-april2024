@@ -1,0 +1,23 @@
+apiVersion : v1
+kind : Pod
+metadata :
+  name : myinit-pod
+  labels : 
+    app.kubernetes.io/name: MyApp
+
+spec:
+  containers:
+  - name: myapp-container
+    image : vishymails/tomcatimage:1.0
+    command : ['sh', '-c', 'echo "Hello, Kubernetes!" && sleep 3600']
+
+  initContainers:
+  - name: init-myservice
+    image: busybox
+    command: ['sh', '-c', 'echo "Initiating my service..." && sleep 3000']
+
+  - name: init-mydb
+    image: nginx
+    command: ['sh', '-c', 'echo "Initiating my Web Server ..." && sleep 3000']
+
+

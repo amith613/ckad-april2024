@@ -1,0 +1,26 @@
+apiVersion : v1
+kind : Pod
+metadata : 
+  name : myconfigpod
+  labels :
+    name : myconfigpod
+
+spec :
+  containers :
+    - name : tomcat-container
+      image : vishymails/tomcatimage:1.0
+      ports :
+        - containerPort : 8080
+      volumeMounts :
+        - name : config-volume
+          mountPath : /oracle-config
+
+  volumes : 
+    - name : config-volume
+      configMap :
+        name : myconfig
+
+
+
+
+      

@@ -1,0 +1,15 @@
+apiVersion : v1
+kind : PersistentVolumeClaim
+metadata:
+  name: kube-pvc1
+
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 1Gi
+
